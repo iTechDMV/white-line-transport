@@ -3,26 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="White Line Transport L.L.C. Government Contracting and Capabilities — long-distance general freight truckload transportation, dispatching, fleet operations, and[...]">
+    <meta name="description" content="White Line Transport L.L.C. Government Contracting & Vendor Information — freight transportation, logistics, dispatching, fleet operations, and vendor registration information.">
     <meta name="author" content="White Line Transport L.L.C.">
-    <title>Government Contracting & Capabilities | White Line Transport L.L.C.</title>
+    <title>Government Contracting & Vendor Information | White Line Transport L.L.C.</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        .inner-hero{padding:180px 0 100px;background:#080808;color:#fff}
+        .inner-hero{padding:180px 0 105px;background:#080808;color:#fff;border-bottom:1px solid #262626}
         .inner-hero h1{font-family:var(--font-heading);font-size:clamp(48px,7vw,88px);line-height:.95;margin-top:18px}
         .inner-hero h1 span{color:var(--accent)}
-        .inner-hero p{max-width:760px;color:#aaa;font-size:18px;line-height:1.8;margin-top:28px}
+        .inner-hero p{max-width:800px;color:#aaa;font-size:18px;line-height:1.8;margin-top:28px}
+        .hero-meta{display:flex;flex-wrap:wrap;gap:12px;margin-top:35px}
+        .hero-meta span{padding:9px 13px;border:1px solid #333;color:#ccc;font-size:10px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase}
+
+        .contracting-intro{display:grid;grid-template-columns:1fr 1.25fr;gap:80px;align-items:end}
+        .contracting-intro p{color:#5f5f5f;font-size:17px;line-height:1.85}
+
+        .vendor-panel{margin-top:55px;border:1px solid #2c2c2c;background:#101010;color:#fff;box-shadow:0 25px 70px rgba(0,0,0,.12)}
+        .vendor-panel-header{display:flex;justify-content:space-between;gap:30px;align-items:center;padding:30px 34px;border-bottom:1px solid #2c2c2c;background:#151515}
+        .vendor-panel-header span{display:block;color:var(--accent);font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+        .vendor-panel-header h3{font-family:var(--font-heading);font-size:32px;line-height:1.05;margin-top:7px}
+        .vendor-status{padding:10px 13px;background:var(--accent);color:#080808;font-size:9px;font-weight:900;letter-spacing:1.3px;text-transform:uppercase;white-space:nowrap}
+        .identifier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#2c2c2c}
+        .identifier-card{background:#101010;padding:29px 30px;min-height:155px;border-top:3px solid transparent;transition:.2s ease}
+        .identifier-card:hover{border-top-color:var(--accent);background:#171717}
+        .identifier-card .label{display:block;color:#777;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
+        .identifier-card .value{display:block;color:var(--accent);font-family:var(--font-heading);font-size:28px;line-height:1.05;margin-top:12px}
+        .identifier-card .value.small{font-size:21px;letter-spacing:.5px}
+        .identifier-card p{color:#888;font-size:12px;line-height:1.6;margin-top:9px}
+        .vendor-panel-footer{padding:22px 30px;background:#0b0b0b;border-top:1px solid #2c2c2c;color:#777;font-size:12px;line-height:1.7}
+        .vendor-panel-footer strong{color:#ccc}
+
         .cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:55px}
         .cap-card{background:#151515;color:#fff;padding:36px;min-height:230px}
         .cap-card h3{font-family:var(--font-heading);font-size:26px;margin-top:12px}
         .cap-card p{color:#999;margin-top:12px;line-height:1.7}
-        .data-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:#ddd;margin-top:45px}
-        .data-card{background:#fff;padding:28px}
-        .data-card span{display:block;color:#777;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
-        .data-card strong{display:block;font-family:var(--font-heading);font-size:28px;margin-top:8px}
+
+        .procurement-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#303030;margin-top:50px;border:1px solid #303030}
+        .procurement-card{background:#151515;padding:32px;color:#fff}
+        .procurement-card h3{font-family:var(--font-heading);font-size:25px;margin-bottom:10px}
+        .procurement-card p{color:#999;line-height:1.7;font-size:14px}
+        .procurement-card ul{margin-top:16px;padding-left:20px;color:#aaa;line-height:1.9;font-size:13px}
+
         .safety-list{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:40px}
         .safety-list div{padding:24px;background:var(--off-white);border-left:4px solid var(--accent)}
         .safety-list strong{font-family:var(--font-heading);font-size:20px}
@@ -30,8 +54,20 @@
         .cta-band{background:var(--accent);padding:70px 0}
         .cta-band h2{margin-top:10px}
         .cta-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
-        .site-header + main{margin-top:0}
-        @media(max-width:800px){.cap-grid,.data-grid,.safety-list{grid-template-columns:1fr}.inner-hero{padding-top:145px}.nav-container nav{display:none}}
+
+        @media(max-width:850px){
+            .contracting-intro{grid-template-columns:1fr;gap:30px}
+            .identifier-grid{grid-template-columns:repeat(2,1fr)}
+            .cap-grid,.procurement-grid,.safety-list{grid-template-columns:1fr}
+            .vendor-panel-header{align-items:flex-start;flex-direction:column}
+        }
+        @media(max-width:560px){
+            .inner-hero{padding-top:145px}
+            .identifier-grid{grid-template-columns:1fr}
+            .identifier-card{min-height:auto}
+            .vendor-panel-header{padding:24px}
+            .vendor-panel-footer{padding:20px 24px}
+        }
     </style>
 </head>
 <body>
@@ -48,13 +84,108 @@
         </nav>
     </div>
 </header>
+
 <main>
-<section class="inner-hero"><div class="container"><div class="section-label">GOVERNMENT CONTRACTING / CAPABILITIES</div><h1>TRANSPORTATION<br><span>BUILT TO DELIVER.</span></h1><p>White Line Transpor[...]</section>
-<section class="section"><div class="container"><div class="section-label">CORE COMPETENCIES</div><h2>CAPABILITIES <span>AT A GLANCE.</span></h2><div class="cap-grid"><article class="cap-card"><div class="cap-icon">🚛</div><h3>FREIGHT TRANSPORT</h3><p>Long-distance general freight truckload transportation supporting full truckload movements and origin-to-destination service.</p></article><article class="cap-card"><div class="cap-icon">📡</div><h3>DISPATCH & OPERATIONS</h3><p>Coordinated dispatch operations, driver communication, and operational oversight to support reliable freight movement.</p></article><article class="cap-card"><div class="cap-icon">⚙</div><h3>FLEET MANAGEMENT</h3><p>Preventive maintenance, compliance programs, and fleet utilization practices to support safety and reliability.</p></article></div></section>
-<section class="section dark-section"><div class="container"><div class="section-label">BUSINESS IDENTIFIERS</div><h2>CONTRACTING <span>PROFILE.</span></h2><div class="data-grid"><div class="data-card"><span>PRIMARY NAICS</span><strong>484121</strong><p>General Freight Trucking, Long-Distance, Truckload</p></div><div class="data-card"><span>USDOT</span><strong>4552783</strong><p>Department of Transportation identification</p></div><div class="data-card"><span>UEI</span><strong class="uei">MAUBTDFN9K53</strong><p>Unique Entity Identifier</p></div><div class="data-card"><span>BUSINESS TYPE</span><strong>Disregarded Entity, L.L.C. | SMALL BUSINESS</strong><p>Harrisonburg, Virginia</p></div></div><div class="credentials"><div class="credential"><span>SECONDARY NAICS</span><ul class="naics-list" aria-label="Secondary NAICS codes"><li><strong>484122</strong> — General Freight Trucking, Long-Distance, Less Than Truckload (LTL)</li><li><strong>484230</strong> — Specialized freight transportation services</li><li><strong>488510</strong> — Freight Transportation Arrangement</li><li><strong>488999</strong> — Other support activities for transportation</li></ul></div><div class="credential"><span>SERVICE AREA</span><strong>Virginia & Mid‑Atlantic Region</strong><p>Nationwide Long‑Haul Capability</p></div></div></section>
-<section class="section safety-section"><div class="container"><div class="section-label">SAFETY PROTOCOLS</div><h2>SAFETY IS PART OF <span>EVERY LOAD.</span></h2><div class="safety-list"><div><strong>VEHICLE INSPECTIONS</strong><p>Pre- and post-trip inspections, defect reporting, and maintenance scheduling.</p></div><div><strong>REGULATORY COMPLIANCE</strong><p>Driver qualification, hours-of-service adherence, and regulatory recordkeeping.</p></div><div><strong>PREVENTIVE MAINTENANCE</strong><p>Routine maintenance and service programs to reduce breakdowns and support safety.</p></div><div><strong>FREIGHT SECUREMENT</strong><p>Secure loading practices and tie-down procedures to protect freight in transit.</p></div></div></section>
-<section class="cta-band"><div class="container"><div class="section-label">CONTRACTING INQUIRIES</div><h2>LET'S DISCUSS YOUR <span>TRANSPORTATION NEEDS.</span></h2><div class="cta-actions"><a href="tel:15409649102" class="button button-outline">Call (540) 964-9102</a><a href="mailto:justin@whitelinetransport.it.com" class="button button-primary">Email Us</a></div></div></section>
+<section class="inner-hero">
+    <div class="container">
+        <div class="section-label">GOVERNMENT CONTRACTING / VENDOR INFORMATION</div>
+        <h1>READY FOR<br><span>PROCUREMENT.</span></h1>
+        <p>White Line Transport L.L.C. is a Virginia-based small-business transportation provider focused on dependable long-distance general freight truckload transportation, dispatching, logistics coordination, and fleet operations.</p>
+        <div class="hero-meta">
+            <span>Small Business</span>
+            <span>NAICS 484121</span>
+            <span>Virginia Vendor</span>
+            <span>Long-Haul Freight</span>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="contracting-intro">
+            <div>
+                <div class="section-label">GOVERNMENT & CONTRACTING</div>
+                <h2>CONTRACTING <span>PROFILE.</span></h2>
+            </div>
+            <p>White Line Transport is positioned to support government agencies, prime contractors, subcontracting opportunities, brokers, commercial customers, and transportation partners requiring professional freight transportation services.</p>
+        </div>
+
+        <div class="vendor-panel">
+            <div class="vendor-panel-header">
+                <div>
+                    <span>Official Business & Vendor Credentials</span>
+                    <h3>Government Contracting & Vendor Information</h3>
+                </div>
+                <div class="vendor-status">Small Business • Virginia</div>
+            </div>
+
+            <div class="identifier-grid">
+                <div class="identifier-card"><span class="label">Primary NAICS</span><strong class="value">484121</strong><p>General Freight Trucking, Long-Distance, Truckload</p></div>
+                <div class="identifier-card"><span class="label">USDOT Number</span><strong class="value">4552783</strong><p>Department of Transportation identification</p></div>
+                <div class="identifier-card"><span class="label">UEI</span><strong class="value small">MAUBTDFN9K53</strong><p>Unique Entity Identifier</p></div>
+                <div class="identifier-card"><span class="label">VLIN</span><strong class="value">VA10130937</strong><p>Virginia vendor identification</p></div>
+                <div class="identifier-card"><span class="label">Vendor Customer Code</span><strong class="value">SUP353430</strong><p>Vendor customer code</p></div>
+                <div class="identifier-card"><span class="label">EIN</span><strong class="value">414389923</strong><p>Employer Identification Number</p></div>
+            </div>
+
+            <div class="vendor-panel-footer"><strong>Procurement profile:</strong> Small Business • Harrisonburg, Virginia • Long-distance general freight truckload transportation • Dispatching • Fleet operations. Identifiers are provided for legitimate procurement, vendor qualification, and contracting purposes.</div>
+        </div>
+    </div>
+</section>
+
+<section class="section dark-section">
+    <div class="container">
+        <div class="section-label">CORE COMPETENCIES</div>
+        <h2>CAPABILITIES <span>AT A GLANCE.</span></h2>
+        <div class="cap-grid">
+            <article class="cap-card"><div class="cap-icon">🚛</div><h3>FREIGHT TRANSPORT</h3><p>Long-distance general freight truckload transportation supporting full truckload movements and origin-to-destination service.</p></article>
+            <article class="cap-card"><div class="cap-icon">📡</div><h3>DISPATCH & OPERATIONS</h3><p>Coordinated dispatch operations, driver communication, and operational oversight to support reliable freight movement.</p></article>
+            <article class="cap-card"><div class="cap-icon">⚙</div><h3>FLEET MANAGEMENT</h3><p>Preventive maintenance, compliance programs, and fleet utilization practices to support safe and reliable operations.</p></article>
+        </div>
+
+        <div class="procurement-grid">
+            <div class="procurement-card"><h3>Ideal Contracting Partners</h3><p>White Line Transport can support organizations seeking dependable transportation capacity and operational coordination.</p><ul><li>Federal, state, and local government agencies</li><li>Prime contractors and subcontractors</li><li>Freight brokers and logistics providers</li><li>Commercial shippers and transportation partners</li></ul></div>
+            <div class="procurement-card"><h3>Primary Service Capability</h3><p>General freight trucking with a focus on long-distance truckload transportation, supported by dispatching and fleet operations.</p><ul><li>Long-distance truckload freight</li><li>Freight transportation coordination</li><li>Dispatch operations</li><li>Fleet and driver coordination</li></ul></div>
+        </div>
+    </div>
+</section>
+
+<section class="section safety-section">
+    <div class="container">
+        <div class="section-label">SAFETY PROTOCOLS</div>
+        <h2>SAFETY IS PART OF <span>EVERY LOAD.</span></h2>
+        <div class="safety-list">
+            <div><strong>VEHICLE INSPECTIONS</strong><p>Pre- and post-trip inspections, defect reporting, and maintenance scheduling.</p></div>
+            <div><strong>REGULATORY COMPLIANCE</strong><p>Driver qualification, hours-of-service adherence, and regulatory recordkeeping.</p></div>
+            <div><strong>PREVENTIVE MAINTENANCE</strong><p>Routine maintenance and service programs to reduce breakdowns and support safety.</p></div>
+            <div><strong>FREIGHT SECUREMENT</strong><p>Secure loading practices and tie-down procedures to protect freight in transit.</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-band">
+    <div class="container">
+        <div class="section-label">CONTRACTING INQUIRIES</div>
+        <h2>LET'S DISCUSS YOUR <span>TRANSPORTATION NEEDS.</span></h2>
+        <div class="cta-actions">
+            <a href="White_Line_Transport_Capabilities_Statement.pdf" class="button button-outline" download>Download Capabilities Statement</a>
+            <a href="tel:15409649102" class="button button-outline">Call (540) 964-9102</a>
+            <a href="mailto:justin@whitelinetransport.it.com" class="button button-primary">Email Us</a>
+        </div>
+    </div>
+</section>
 </main>
-<footer><div class="container footer-main"><div class="footer-brand"><div class="logo"><div class="logo-mark">WL</div><div class="logo-text"><strong>WHITE LINE</strong><span>TRANSPORT L.L.C.</span></div></div></div></div></footer>
+
+<footer>
+    <div class="container footer-main">
+        <div class="footer-brand">
+            <div class="logo"><div class="logo-mark">WL</div><div class="logo-text"><strong>WHITE LINE</strong><span>TRANSPORT L.L.C.</span></div></div>
+            <p>Reliable freight transportation, logistics, dispatching, and fleet operations.</p>
+        </div>
+        <div class="footer-links"><h4>CONTRACTING</h4><a href="government-contracting.html">Government Contracting</a><a href="White_Line_Transport_Capabilities_Statement.pdf" download>Capabilities Statement</a></div>
+        <div class="footer-links"><h4>CONTACT</h4><a href="tel:15409649102">540-964-9102</a><a href="mailto:justin@whitelinetransport.it.com">justin@whitelinetransport.it.com</a></div>
+        <div class="footer-links"><h4>VENDOR REGISTRATION</h4><span>VLIN: VA10130937</span><span>Vendor Customer Code: SUP353430</span><span>EIN: 414389923</span></div>
+    </div>
+</footer>
 </body>
 </html>
