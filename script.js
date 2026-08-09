@@ -121,15 +121,40 @@ document.addEventListener(
                 }
             ];
 
-            vendorCredentials.forEach(function (item) {
-                const card = document.createElement("div");
-                card.className = "credential vendor-credential";
-                card.innerHTML =
-                    "<span>" + item.label + "</span>" +
-                    "<strong>" + item.value + "</strong>" +
-                    "<p>" + item.description + "</p>";
-                credentials.appendChild(card);
-            });
+            const existingVendorCards = credentials.querySelectorAll(
+                ".vendor-credential"
+            );
+
+            if (!existingVendorCards.length) {
+                vendorCredentials.forEach(function (item) {
+                    const card = document.createElement("div");
+                    card.className = "credential vendor-credential";
+                    card.innerHTML =
+                        "<span>" + item.label + "</span>" +
+                        "<strong>" + item.value + "</strong>" +
+                        "<p>" + item.description + "</p>";
+                    credentials.appendChild(card);
+                });
+            }
+
+            /* Add a clear procurement-oriented heading above all identifiers. */
+            const contractingSection = document.querySelector(
+                ".contracting-section .container"
+            );
+
+            if (
+                contractingSection &&
+                credentials &&
+                !contractingSection.querySelector(".credential-heading")
+            ) {
+                const heading = document.createElement("div");
+                heading.className = "credential-heading";
+                heading.innerHTML =
+                    "<span>PROCUREMENT INFORMATION</span>" +
+                    "<h3>GOVERNMENT &amp; VENDOR IDENTIFIERS</h3>" +
+                    "<p>Key business, transportation, and vendor registration information for procurement officers, prime contractors, brokers, and commercial partners.</p>";
+                contractingSection.insertBefore(heading, credentials);
+            }
         }
 
         /* =====================================
@@ -140,8 +165,9 @@ document.addEventListener(
             "footer .footer-links:last-child"
         );
 
-        if (identifierColumn) {
+        if (identifierColumn && !identifierColumn.querySelector(".vendor-registration-added")) {
             const vendorHeading = document.createElement("h4");
+            vendorHeading.className = "vendor-registration-added";
             vendorHeading.textContent = "VENDOR REGISTRATION";
             identifierColumn.appendChild(vendorHeading);
 
@@ -157,6 +183,94 @@ document.addEventListener(
                 identifierColumn.appendChild(item);
             });
         }
+
+        /* =====================================
+           PROCUREMENT SECTION DESIGN OVERRIDES
+        ===================================== */
+
+        const style = document.createElement("style");
+        style.textContent = `
+            .credential-heading {
+                margin: 0 0 28px;
+                padding: 24px 28px;
+                border-left: 4px solid var(--accent);
+                background: #111;
+            }
+
+            .credential-heading span {
+                display: block;
+                color: var(--accent);
+                font-size: 10px;
+                font-weight: 800;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                margin-bottom: 7px;
+            }
+
+            .credential-heading h3 {
+                color: #fff;
+                font-family: var(--font-heading);
+                font-size: clamp(24px, 3vw, 34px);
+                line-height: 1.05;
+                letter-spacing: .4px;
+            }
+
+            .credential-heading p {
+                max-width: 760px;
+                margin-top: 9px;
+                color: #888;
+                font-size: 13px;
+                line-height: 1.7;
+            }
+
+            .contracting-section .credentials {
+                grid-template-columns: repeat(4, 1fr);
+                background: #303030;
+                border: 1px solid #303030;
+            }
+
+            .contracting-section .credential {
+                min-height: 175px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+            }
+
+            .contracting-section .vendor-credential {
+                background: #101010;
+            }
+
+            .contracting-section .vendor-credential strong {
+                font-size: 25px;
+            }
+
+            .contracting-section .vendor-credential:nth-child(6) strong {
+                font-size: 22px;
+                letter-spacing: .8px;
+            }
+
+            .contracting-section .vendor-credential:nth-child(7) strong {
+                font-size: 24px;
+                letter-spacing: 1px;
+            }
+
+            @media (max-width: 900px) {
+                .contracting-section .credentials {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            @media (max-width: 560px) {
+                .contracting-section .credentials {
+                    grid-template-columns: 1fr;
+                }
+
+                .credential-heading {
+                    padding: 20px;
+                }
+            }
+        `;
+        document.head.appendChild(style);
 
     }
 );
